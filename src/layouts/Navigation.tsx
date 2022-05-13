@@ -57,6 +57,9 @@ const Navigation = () => {
     color: theme.palette.text.primary,
     textDecoration: "none",
     marginLeft: "1.2rem",
+    fontFamily: "Open Sans, sans-serif",
+    fontWeight: 600,
+    transition: "color 0.2s",
     "&:hover": {
       color: theme.palette.text.secondary,
     },

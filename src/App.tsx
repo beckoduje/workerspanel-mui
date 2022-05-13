@@ -9,7 +9,9 @@ import { PaletteMode, Box } from "@mui/material";
 
 import Navigation from "./layouts/Navigation";
 
-const getDesignTokens = (mode: any) => ({
+import Home from "./pages/Home";
+
+const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
     mode,
     ...(mode === "light"
@@ -52,15 +54,15 @@ function App() {
   return (
     <ThemeProvider theme={darkModeTheme}>
       <Navigation />
-      <Box
-        sx={{
-          marginTop: "100px",
-          bgcolor: "background.default",
-          color: "text.primary",
-        }}
-      >
-        Glava
-      </Box>
+      <Routes>
+        <Route path="/" element={<Navigate replace to="/home" />} />
+        <Route path="/home" element={<Home />} />
+        {/* <Route path="/about" element={<About />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/log-in" element={<LogIn />} />
+        <Route path="/searched-workers/:worker" element={<SearchedWorkers />} />
+        <Route path="/single-worker/:workerId" element={<SingleWorker />} /> */}
+      </Routes>
     </ThemeProvider>
   );
 }
