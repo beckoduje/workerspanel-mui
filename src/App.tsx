@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import { ThemeProvider, useTheme, createTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import { amber, deepOrange, grey } from "@mui/material/colors";
 import { PaletteMode, Box } from "@mui/material";
@@ -10,6 +10,7 @@ import { PaletteMode, Box } from "@mui/material";
 import Navigation from "./layouts/Navigation";
 
 import Home from "./pages/Home";
+import LogIn from "./pages/LogIn";
 
 const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
@@ -58,9 +59,9 @@ function App() {
         <Route path="/" element={<Navigate replace to="/home" />} />
         <Route path="/home" element={<Home />} />
         {/* <Route path="/about" element={<About />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-up" element={<SignUp />} /> */}
         <Route path="/log-in" element={<LogIn />} />
-        <Route path="/searched-workers/:worker" element={<SearchedWorkers />} />
+        {/*<Route path="/searched-workers/:worker" element={<SearchedWorkers />} />
         <Route path="/single-worker/:workerId" element={<SingleWorker />} /> */}
       </Routes>
     </ThemeProvider>

@@ -1,5 +1,5 @@
 import React from "react";
-import pieChart from "../assets/images/pie-chart.png";
+import pieChart from "../../assets/images/pie-chart.png";
 
 import { Box, styled } from "@mui/material";
 

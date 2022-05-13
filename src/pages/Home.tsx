@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 
 import { Container, Typography, styled } from "@mui/material";
 // import { useSelector } from "react-redux";
-import ChartPieLogo from "../layouts/ChartPieLogo";
-import WPLogo from "../layouts/WPLogo";
+import ChartPieLogo from "../layouts/home/ChartPieLogo";
+import WPLogo from "../layouts/home/WPLogo";
 // import { Fragment } from "react/cjs/react.production.min";
 // import SidePanel from "../components/shared/SidePanel";
 
