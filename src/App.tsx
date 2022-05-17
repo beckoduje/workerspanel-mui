@@ -25,10 +25,14 @@ const getDesignTokens = (mode: PaletteMode) => ({
           },
           boxShadow: {
             primary: "0 8px 16px 0 rgba(0,0,0,0.12)",
+            secondary: "0px 3px 3px rgba(0, 0, 0, 0.25)",
           },
           text: {
             primary: "#353535",
             secondary: "rgba(104, 99, 99, 0.9)",
+            active: "#0b9afa",
+            action: "#0b9afa",
+            inputError: "rgba(252, 97, 0, 0.9)",
           },
         }
       : {

@@ -1,11 +1,21 @@
 import React from "react";
+
+import { Container } from "@mui/material";
 import LogInForm from "../layouts/log-in/LogInForm";
 
 const LogIn = () => {
   return (
-    <section className="log-in-section">
+    <Container
+      component="section"
+      sx={{
+        padding: "6rem",
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "center",
+      }}
+    >
       <LogInForm />
-    </section>
+    </Container>
   );
 };
 

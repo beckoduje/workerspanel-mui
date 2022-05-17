@@ -20,6 +20,21 @@
         font-family: "Roboto", sans-serif;
         margin: 0;
       }
+      /* OVO JE DA MI NA E-MAIL AUTOFILU NE MINJA BOJU POZADINA */
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover, 
+      input:-webkit-autofill:focus,
+      /*
+      textarea:-webkit-autofill,
+      textarea:-webkit-autofill:hover,
+      textarea:-webkit-autofill:focus,
+      */
+      select:-webkit-autofill,
+      select:-webkit-autofill:hover,
+      select:-webkit-autofill:focus {
+        -webkit-text-fill-color: #353535;
+        transition: background-color 5000s ease-in-out 0s;
+      }
     </style>
     <title>Workers App</title>
   </head>
