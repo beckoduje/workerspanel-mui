@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+
+import { useSelector, useDispatch } from "react-redux";
 
 import { NavLink } from "react-router-dom";
 
@@ -22,10 +24,12 @@ import {
 
 //import { useTheme } from "@mui/material/styles";
 
+import AccountMenu from "./AccountMenu";
+
 const Navigation = () => {
   // const outTheme = useTheme();
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const isLoggedIn = useSelector((state: any) => state.isLoggedIn.isLoggedIn);
 
   const CustomAppBar = styled(AppBar)(({ theme }) => ({
     position: "sticky",
@@ -167,10 +171,12 @@ const Navigation = () => {
                 <Visibility />
               </Badge>
               <Settings />
-              <Avatar
+
+              {/* <Avatar
                 sx={{ width: 30, height: 30 }}
                 src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              />
+              /> */}
+              <AccountMenu />
             </Icons>
           )}
 
@@ -179,7 +185,6 @@ const Navigation = () => {
           {!isLoggedIn && (
             <Link
               to="/log-in"
-              onClick={() => setIsLoggedIn(!isLoggedIn)}
               className={(navData) => (navData.isActive ? "active" : "")}
             >
               Log in

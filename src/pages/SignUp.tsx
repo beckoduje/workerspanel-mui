@@ -1,7 +1,8 @@
 import { Container } from "@mui/material";
-import LogInForm from "../layouts/log-in/LogInForm";
 
-const LogIn = () => {
+import SignUpForm from "../layouts/sign-up/SignUpForm";
+
+const SignUp = () => {
   return (
     <Container
       component="section"
@@ -12,9 +13,9 @@ const LogIn = () => {
         justifyContent: "center",
       }}
     >
-      <LogInForm />
+      <SignUpForm />
     </Container>
   );
 };
 
-export default LogIn;
+export default SignUp;

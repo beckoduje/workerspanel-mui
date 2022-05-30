@@ -1,20 +1,13 @@
 import React, { Fragment } from "react";
 
-import { Container, Typography, styled } from "@mui/material";
-// import { useSelector } from "react-redux";
+import { Container, Typography, Box, styled } from "@mui/material";
+import { useSelector } from "react-redux";
 import ChartPieLogo from "../layouts/home/ChartPieLogo";
 import WPLogo from "../layouts/home/WPLogo";
-// import { Fragment } from "react/cjs/react.production.min";
-// import SidePanel from "../components/shared/SidePanel";
+import SidePanel from "../layouts/navigation/SidePanel";
 
 const Home = () => {
-  // const isLoggedIn = useSelector((state) => state.isLoggedIn.isLoggedIn);
-  // const headerClass = !isLoggedIn ? "main-header" : "main-header inactive";
-  // const sidePanelActivatorClass = isLoggedIn
-  //   ? "side-panel-activator"
-  //   : "side-panel-activator inactive";
-
-  // const theme = useTheme();
+  const isLoggedIn = useSelector((state: any) => state.isLoggedIn.isLoggedIn);
 
   const HomeTitle = styled(Typography)(({ theme }) => ({
     gridColumn: "span 2",
@@ -46,22 +39,33 @@ const Home = () => {
 
   return (
     <Fragment>
-      <Container
-        sx={{
-          display: "grid",
-          gridTemplateRows: "8fr 3fr",
-          gridTemplateColumns: "1fr 1fr",
-          placeItems: "center",
-          height: "calc(100% - 5.3rem)",
-        }}
-      >
-        <WPLogo />
-        <ChartPieLogo />
-        <HomeTitle>Manage your workers</HomeTitle>
-      </Container>
-      {/* <div className={sidePanelActivatorClass}>
-        <SidePanel />
-      </div> */}
+      {!isLoggedIn && (
+        <Container
+          sx={{
+            display: "grid",
+            gridTemplateRows: "8fr 3fr",
+            gridTemplateColumns: "1fr 1fr",
+            placeItems: "center",
+            height: "calc(100% - 5.3rem)",
+          }}
+        >
+          <WPLogo />
+          <ChartPieLogo />
+          <HomeTitle>Manage your workers</HomeTitle>
+        </Container>
+      )}
+      {isLoggedIn && (
+        <Box
+          sx={{
+            zIndex: 100,
+            position: "fixed",
+            top: "5.3rem",
+            height: "calc(100% - 5.3rem)",
+          }}
+        >
+          <SidePanel />
+        </Box>
+      )}
     </Fragment>
   );
 };
