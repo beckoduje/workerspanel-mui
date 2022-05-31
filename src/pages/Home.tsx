@@ -57,7 +57,7 @@ const Home = () => {
       {isLoggedIn && (
         <Box
           sx={{
-            zIndex: 100,
+            zIndex: 2000,
             position: "fixed",
             top: "5.3rem",
             height: "calc(100% - 5.3rem)",

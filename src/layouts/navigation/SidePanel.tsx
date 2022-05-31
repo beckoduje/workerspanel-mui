@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
 import { Box, Typography, InputBase, IconButton, styled } from "@mui/material";
-// import Search from "./Search";
-// import SidePanelWorkersList from "./SidePanelWorkersList";
-// import Filter from "./Filter";
-// import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
-// import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
+
+import SidePanelWorkersList from "../side-panel/SidePanelWorkersList";
+import Filter from "./Filter";
+
 import {
   Search as SearchIcon,
   ArrowCircleRight,
@@ -22,9 +21,9 @@ const SidePanel = () => {
     zIndex: 100,
     height: "100%",
     background: "white",
-    width: isSidePanelOpen ? "22rem" : "2rem", //  sx={{ whiteSpace: isMobile ? 'normal' : 'pre'}}
+    width: isSidePanelOpen ? "22rem" : "4rem", //  sx={{ whiteSpace: isMobile ? 'normal' : 'pre'}}
     boxShadow: "4px 6px 8px rgba(0, 0, 0, 0.25)",
-    borderTop: "1px solid $lightBorderColor",
+    borderTop: `1px solid ${theme.palette.border.lightBorderColor}`,
     transition: "0.2s",
   }));
 
@@ -32,7 +31,7 @@ const SidePanel = () => {
     display: "flex",
     justifyContent: "flex-end",
     padding: "1rem",
-    borderBottom: "1px solid $lightBorderColor",
+    borderBottom: `1px solid ${theme.palette.border.lightBorderColor}`,
   }));
 
   ///////////////////////////////////// Search prebacit negdi
@@ -45,7 +44,6 @@ const SidePanel = () => {
     marginRight: "1.2rem",
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
       width: "auto",
     },
   }));
@@ -73,7 +71,7 @@ const SidePanel = () => {
       [theme.breakpoints.up("sm")]: {
         width: "12ch",
         "&:focus": {
-          width: "20ch",
+          width: "17ch",
         },
       },
     },
@@ -84,11 +82,11 @@ const SidePanel = () => {
   return (
     <Aside>
       <SidePanelAcions>
-        {/* {isSidePanelOpen && (
-          <Filter sortValue={sortValue} setSortValue={setSortValue} />
-        )} */}
         {isSidePanelOpen && (
-          <Search>
+          <Filter sortValue={sortValue} setSortValue={setSortValue} />
+        )}
+        {isSidePanelOpen && (
+          <Search sx={{ marginRight: 0, marginLeft: 0 }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -99,7 +97,7 @@ const SidePanel = () => {
           </Search>
         )}
         <IconButton
-          color="primary"
+          sx={{ paddingRight: 0, color: "#0b9afa" }}
           aria-label="upload picture"
           component="span"
           onClick={() => setIsSidePanelOpen(!isSidePanelOpen)}
@@ -107,7 +105,7 @@ const SidePanel = () => {
           {!isSidePanelOpen ? <ArrowCircleRight /> : <ArrowCircleLeft />}
         </IconButton>
       </SidePanelAcions>
-      {/* {isSidePanelOpen && <SidePanelWorkersList sortValue={sortValue} />} */}
+      {isSidePanelOpen && <SidePanelWorkersList sortValue={sortValue} />}
     </Aside>
   );
 };

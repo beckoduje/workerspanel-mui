@@ -15,6 +15,7 @@ import About from "./pages/About";
 import SignUp from "./pages/SignUp";
 
 const getDesignTokens = (mode: PaletteMode) => ({
+  // node_modules\@mui\material\styles\createPalette.d.ts - tu se nalazi prokleti fajl
   palette: {
     mode,
     ...(mode === "light"
@@ -36,6 +37,9 @@ const getDesignTokens = (mode: PaletteMode) => ({
             action: "#0b9afa",
             inputError: "rgba(252, 97, 0, 0.9)",
           },
+          border: {
+            lightBorderColor: "#dfe1e5",
+          },
         }
       : {
           // palette values for dark mode
@@ -48,6 +52,9 @@ const getDesignTokens = (mode: PaletteMode) => ({
           text: {
             primary: "#fff",
             secondary: grey[500],
+          },
+          border: {
+            lightBorderColor: "#dfe1e5",
           },
         }),
   },
