@@ -79,7 +79,7 @@ const LogInForm = () => {
   const dispatch = useDispatch();
   const navitage = useNavigate();
 
-  const handleLogin = (auth: any, email: any, password: any, bag: any) => {
+  const handleLogin = (auth: any, email: any, password: any, values: any) => {
     // e.preventDefault();
 
     signInWithEmailAndPassword(auth, email, password)
@@ -95,10 +95,11 @@ const LogInForm = () => {
         // const errorCode = error.code;
         // const errorMessage = error.message;
         console.log(error);
-        bag.setErrors(error);
+        console.log(error.name);
+        // bag.setErrors(error);
       })
       .finally(() => {
-        console.log(bag);
+        //console.log(bag);
       });
   };
   return (
@@ -115,9 +116,9 @@ const LogInForm = () => {
             .required("Required"),
           password: Yup.string().required("No password provided."),
         })}
-        onSubmit={(values, bag) => {
+        onSubmit={(values, actions) => {
           const { email, password } = values;
-          handleLogin(auth, email, password, bag);
+          handleLogin(auth, email, password, actions);
         }}
       >
         {({ isSubmitting, errors }) => {

@@ -1,13 +1,42 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 
 import { Container, Typography, Box, styled } from "@mui/material";
 import { useSelector } from "react-redux";
 import ChartPieLogo from "../layouts/home/ChartPieLogo";
 import WPLogo from "../layouts/home/WPLogo";
 import SidePanel from "../layouts/navigation/SidePanel";
+// test nakon dugo vrimena
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
 
 const Home = () => {
   const isLoggedIn = useSelector((state: any) => state.isLoggedIn.isLoggedIn);
+  const [workersList, setWorkersList] = useState();
+
+  // fetch radnika start
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let list: any = [];
+      try {
+        const querySnapshot = await getDocs(collection(db, "workers"));
+        querySnapshot.forEach((doc) => {
+          list.push({ id: doc.id, ...doc.data() });
+        });
+        setWorkersList(list);
+        console.log(list);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    console.log(workersList);
+  }, [workersList]);
+
+  // fetch radnika kraj
 
   const HomeTitle = styled(Typography)(({ theme }) => ({
     gridColumn: "span 2",
